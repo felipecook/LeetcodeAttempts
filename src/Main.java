@@ -5,10 +5,14 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        int[] testArray = new int[]{1, 2, 3, 4, 6, 8};
-        int[] tryThisOut = twoSum(testArray, 12);
-        System.out.println(tryThisOut[0]);
-        System.out.println(tryThisOut[1]);
+//        int[] testArray = new int[]{1, 2, 3, 4, 6, 8};
+//        int[] tryThisOut = twoSum(testArray, 12);
+//        System.out.println(tryThisOut[0]);
+//        System.out.println(tryThisOut[1]);
+
+        int testNumber = 1231321;
+        System.out.println(isPalindrome(testNumber));
+
     }
 
     public static int[] twoSum(int[] nums, int target) {
@@ -63,10 +67,17 @@ public class Main {
         if (x % 10 == 0  && x != 0){
             return false;
         }
+        int counter = 1;
         for (int i = 0; i < xAsString.length() / 2; i++){
-            String charHolder = Character.toString(xAsString.charAt(i));
+            char beginningChars = xAsString.charAt(i);
+            char endingChars = xAsString.charAt(xAsString.length() - counter);
+            if (beginningChars != endingChars){
+                return false;
+            }
+            counter++;
 
         }
+
 
         return true;
     }
