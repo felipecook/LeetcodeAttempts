@@ -10,8 +10,11 @@ public class Main {
 //        System.out.println(tryThisOut[0]);
 //        System.out.println(tryThisOut[1]);
 
-        int testNumber = 1231321;
-        System.out.println(isPalindrome(testNumber));
+//        int testNumber = 1231321;
+//        System.out.println(isPalindrome(testNumber));
+
+        String testString = "MCMXCIV";
+        System.out.println(romanToInt(testString));
 
     }
 
@@ -82,5 +85,45 @@ public class Main {
         return true;
     }
 
-
+    public static int romanToInt(String s) {
+        int returnInt = 0;
+        for (int i = 0; i < s.length() - 1; i++) {
+            char c = s.charAt(i);
+            switch (c) {
+                case 'I' -> returnInt++;
+                case 'V' -> returnInt += 5;
+                case 'X' -> returnInt += 10;
+                case 'L' -> returnInt += 50;
+                case 'C' -> returnInt += 100;
+                case 'D' -> returnInt += 500;
+                case 'M' -> returnInt += 1000;
+                default -> returnInt += 0;
+            }
+        }
+        for (int i = 0; i < s.length() - 1; i++) {
+            char c = s.charAt(i);
+            char d = s.charAt(i + 1);
+            if (c == 'I' && d == 'V') {
+                returnInt -= 2;
+            }
+            if (c == 'I' && d == 'X') {
+                returnInt -= 2;
+            }
+            if (c == 'X' && d == 'L') {
+                returnInt -= 20;
+            }
+            if (c == 'X' && d == 'C') {
+                returnInt -= 20;
+            }
+            if (c == 'C' && d == 'D') {
+                returnInt -= 200;
+            }
+            if (c == 'C' && d == 'M') {
+                returnInt -= 200;
+            }
+        }
+        return returnInt;
+    }
 }
+
+
