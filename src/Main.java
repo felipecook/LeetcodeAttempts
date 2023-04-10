@@ -124,6 +124,25 @@ public class Main {
         }
         return returnInt;
     }
+
+    public static String longestCommonPrefix(String[] strs) {
+        StringBuilder returnString = new StringBuilder();
+        for (String pickedString : strs) {
+            for (int j = 0; j < pickedString.length(); j++) {
+                char c = pickedString.charAt(j);
+
+                returnString.append(c);
+            }
+        }
+        ArrayList capturelist = new ArrayList();
+
+
+
+        // I would look at each of the words, starting with the first letter, if there is a first letter that is shared with all the words,
+        // then that first letter will be placed in the stringbuilder.
+        // I would then start looking at the second letter in
+    }
+
 }
 
 
